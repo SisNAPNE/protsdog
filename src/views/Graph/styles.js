@@ -6,12 +6,15 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#DDD',
+        borderBottomWidth: 5,
+        borderTopWidth: 5,
+        borderColor: '#FFF',
     },
     text: {
-        fontSize: 24,
+        fontSize: 21,
         fontWeight: 'bold',
-        color: '#F77737',
-        marginBottom: 10,
+        color: '#660033',
     }
 })
 

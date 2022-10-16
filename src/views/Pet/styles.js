@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     picture: {
         flex: 1,
         aspectRatio: 1,     // não permite que React redimensione a imagem
-        borderRadius: 75,
+        borderRadius: 70,
     },
     boxLeft: {
         flex: 3,
@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         marginTop: 5,
         textAlign: 'center',
+        fontWeight: 'bold',
     },
     text: {
         fontSize: 24,
@@ -56,7 +57,14 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
+        height: 50,
     },
+    button: {
+        position: 'absolute',
+        top: 10,
+        left: 10,
+        elevation: 3,
+    }
 })
 
 export default styles

@@ -27,4 +27,17 @@ LogBox.ignoreAllLogs()
 export default App
 
 
-// android/app/src/main/res/values/
+/*
+-----------------------------
+- ÍCONE E NOME DA APLICAÇÃO -
+-----------------------------
+android/app/src/main/res/values/
+
+---------------------------------
+- INSTALANDO PACOTES - GRÁFICOS -
+---------------------------------
+https://github.com/indiespirit/react-native-chart-kit
+yarn add react-native-chart-kit
+yarn add react-native-svg 			(install peer dependencies)
+
+*/

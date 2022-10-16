@@ -4,9 +4,9 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#660033'
+        backgroundColor: '#660033',
+        paddingTop: 50,
     },
 
     title: {
@@ -50,6 +50,13 @@ const styles = StyleSheet.create({
         width: '100%',
         marginTop: 30,
     },
+
+    btn: {
+        position: 'absolute',
+        top: 10,
+        left: 10,
+        elevation: 3,
+    }
 })
 
 export default styles

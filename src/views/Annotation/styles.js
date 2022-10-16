@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        paddingTop: 80,
     },
     input: {
         borderWidth: 2,
@@ -22,8 +23,22 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#660033',
         marginBottom: 10,
+        marginLeft: 12,
         textAlign: 'center',
     },
+    box: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        width: '100%',
+    },
+
+    button: {
+        position: 'absolute',
+        top: 10,
+        left: 10,
+        elevation: 3,
+    }
+
 })
 
 export default styles
