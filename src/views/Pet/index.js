@@ -62,10 +62,13 @@ function Pet({route}) {
 
         await api.get('/info/1').then(response => {
            
+            let aux = response.data[0].nascimento.split('-')
             setNome(response.data[0].nome)
             setRaca(response.data[0].raca)
             setPeso(response.data[0].peso)
             setProblema(response.data[0].problema == 1 ? true : false)
+            setNascimento(getAge(aux[2], aux[1], aux[0]))
+
             console.log(response.data)
         })
         .catch(error => {
@@ -93,7 +96,7 @@ function Pet({route}) {
                 'nascimento': n,
                 'problema': problema
             }).then(response => {
-                alert('Atualizado')
+                alert('Atualizado!')
             }).catch(error => {
                 alert('ERROR');
             })

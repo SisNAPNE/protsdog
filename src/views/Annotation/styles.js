@@ -37,6 +37,12 @@ const styles = StyleSheet.create({
         top: 10,
         left: 10,
         elevation: 3,
+    },
+    text_data: {
+        fontSize: 14,
+        fontStyle: 'italic',
+        fontWeight: 'bold',
+        color: '#660033',
     }
 
 })

@@ -24,6 +24,16 @@ function Home({route}) {
     async function loadDataApi() {
    
         setLoad(true)    
+        loading()  
+        setLoad(false)
+        
+        setInterval(await function () {
+            loading()  
+        }, 2000)
+
+    }
+
+    function loading() {
 
         api.get("/batimentos/last").then(response => {
             setBeats(response.data[0].valor);
@@ -44,10 +54,7 @@ function Home({route}) {
         })
         .catch(error => {
             alert('[ERROR]')
-        })  
-              
-        setLoad(false)
-            
+        })
     }
 
     return (

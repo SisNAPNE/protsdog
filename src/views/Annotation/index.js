@@ -7,8 +7,23 @@ import styles from './styles'
 
 function Annotation({route}) {
 
-    const [text, setText] = useState('')
+    const meses = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"]
+
+    const [texto, setTexto] = useState('')
+    const [datahora, setData] = useState('')
     const [load, setLoad] = useState(true)
+
+    function layoutDataHora(value) {
+
+        // aux = array()
+        let aux = value.split(' ')
+        let hora = aux[1]
+        aux = aux[0].split('-')
+        let data = aux[2] + "/" + meses[aux[1]] + "/" + aux[0]
+        aux = data + " - " + hora
+
+        setData(aux)
+    }
 
     async function loadAnnotation() {
 
@@ -16,7 +31,8 @@ function Annotation({route}) {
 
         await api.get('/anotar/1').then(response => {
            
-            setText(response.data[0].texto)
+            setTexto(response.data[0].texto)
+            layoutDataHora(response.data[0].datahora)
             console.log(response.data)
         })
         .catch(error => {
@@ -28,13 +44,13 @@ function Annotation({route}) {
 
     async function sendAnnotation() {
 
-        if(text != '') {
+        if(texto != '') {
             
             setLoad(true)
 
             await api.post('/anotar', {
-                'id' : 1,
-                'texto': text
+                'id': 1,
+                'texto': texto
             }).then(response => {
                 alert('Atualizado')
             }).catch(error => {
@@ -44,13 +60,7 @@ function Annotation({route}) {
             setLoad(false)
         }
         else {
-            Alert.alert(
-                "Atualização",
-                "[Erro]: campo possui preenchimento obrigatório!",
-                [ 
-                  { text: "OK", onPress: () => console.log("OK Pressed") }
-                ]
-            )
+            alert("[Erro]: campo possui preenchimento obrigatório!")
         }
     }
 
@@ -86,11 +96,14 @@ function Annotation({route}) {
                         </View>
                         <TextInput
                             multiline={true}
-                            numberOfLines={21}
-                            onChangeText={ (value) => setText({value}) }
-                            value={text}
+                            numberOfLines={18}
+                            onChangeText={ (value) => setTexto(value) }
+                            value={texto}
                             style={styles.input}
                         />
+                        <Text style={styles.text_data}>
+                            {datahora}
+                        </Text>
                     </View>
             }
         </ScrollView>
